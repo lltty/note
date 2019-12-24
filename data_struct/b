@@ -1,0 +1,17 @@
+ Status               | Duration  |
++----------------------+-----------+
+| starting             |  0.000073 |
+| checking permissions |  0.000010 |
+| Opening tables       |  0.000016 |
+| init                 |  0.000024 |
+| System lock          |  0.000009 |
+| optimizing           |  0.000006 |
+| statistics           |  0.000014 |
+| preparing            |  0.000012 |
+| executing            |  0.000005 |
+| Sending data         | 12.441884 |
+| end                  |  0.000013 |
+| query end            |  0.000009 |
+| closing tables       |  0.000011 |
+| freeing items        |  0.000028 |
+| cleaning up          |  0.000017
