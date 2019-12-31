@@ -1,0 +1,12 @@
+Kafka: 高吞吐量的分布式队列，linkin开发，apache顶级开源项目，由Scala和Java编写
+ELK: 日志分析系统
+ETCD: 高可用的分布式key-value存储，可用于配置共享和服务发现，使用raft算法，类似软件还有consul和zookeeper
+ES(elasticsearch):开源的搜索引擎，提供基于http restful的web接口
+Hadoop: 分布式计算架构，能够对大量数据进行分布式处理的平台
+Storm:实时计算框架
+Zookeeper: 1 服务注册和服务发现  2 配置中心  3 分布式锁 ，zookeeper是强一致的，多个客户端同时在zookeeper上创建相同的znode,只有一个可以创建成功。4服务选举
+Syslog: Linux自带的日志收集
+
+
+grep、awk和wc等Linux命令能实现检索和统计的使用
+需要了解zookeeper的原理

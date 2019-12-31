@@ -1,0 +1,22 @@
+递归查找包含字符串： grep -n --directorie=recurse xxxx ./* 或者 grep -nr xxxx ./*
+10 * * * * cd /home/wwwroot/crawler_news;/root/.pyenv/shims/scrapy crawl ent >/dev/null 2>&1
+history可以从操作记录可以查看系统是否被入侵过
+du -sh 汇总显示当前目录多大，如果要目录递归则需要 du -h --max-depth=2 表示递归查找目录的深度为2
+df -h  查看系统磁盘分区的使用情况
+top uptime free vmstat
+ctrl + c是程序在后台执行，查看执行的任务:jobs, 后台任务转前台： fg  1  前台任务转后台：bg 1
+traceroute i.adeaz.com  可以探查这个域名经过了哪些网络节点
+目录之间切换： cd -
+把目录放到目录栈，进行跳转：pushcd  popd
+lsattr 列出文件的额外权限
+chattr 给文件增加额外权限，一般用: chattr +i filname
+权限其实是有4位的，还有最高位的st权限，主要是为了控制不同用户操作同一个目录时候的读写权限
+    chmod 6755 xxx #给这个目录或者文件的所有者或者用户组都添加s权限
+cat error.log | cut -d ' ' -f6 | sort | uniq -c | sort -nr | head -n20
+iconv doc2unix
+ps -ef | grep fpm |cut -d' ' -f4| awk '{printf("kill -9 %d\n", $0)}'
+或者awk指定分隔符:ps -ef | grep fpm |awk -F' ' '{printf("kill -9 %d\n", $2)}'
+cat  test.txt | sed 's/hello/toby, hello/g'
+#grep -v "^$"去掉空白行
+#awk "{printf $1}" 合并多行至一行
+cat qq.txt | grep -v "^$" | awk "{printf $1}" | sed 's/(/ /g'| awk '{gsub(/\)/, "\n");printf("%s\n", $0)}' | grep -v "^$" | awk '{printf("insert into (name, qq) values (%s,%s);\n", $0, $1)}'

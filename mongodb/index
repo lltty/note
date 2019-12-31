@@ -1,0 +1,18 @@
+If you need to have openssl first in your PATH run:
+  echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find openssl you may need to set:
+  export LDFLAGS="-L/usr/local/opt/openssl/lib"
+  export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+For pkg-config to find openssl you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+
+==> mongodb
+To have launchd start mongodb now and restart at login:
+  brew services start mongodb
+Or, if you don't want/need a background service you can just run:
+  mongod --config /usr/local/etc/mongod.conf
+
+
+

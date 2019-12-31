@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync/atomic"
 )
 
 //三元运算符
@@ -29,6 +30,16 @@ func mapOk() {
 	} else {
 		println("Yes")
 	}
+}
+
+//对uint类型的数值原子的减操纵
+func aotmicSubUint() {
+	var s uint32
+	s = 100
+	var gg uint32
+	gg = 20
+	atomic.AddUint32(&s, ^uint32(gg-1))
+	fmt.Println(s) //80
 }
 
 func main() {

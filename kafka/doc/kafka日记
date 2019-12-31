@@ -1,0 +1,52 @@
+brew services start zookeeper  #zookeeper后台启动
+zkServer start  #zookeeper前台启动
+
+zookeeper默认启动是端口：2181
+kafka是9092
+
+brew services start kafka   #kafka后台启动
+zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties & kafka-server-start /usr/local/etc/kafka/server.properties  #kafka前台启动
+
+
+
+配置文件所在位置：
+/usr/local/etc/kafka/server.properties
+/usr/local/etc/kafka/zookeeper.properties
+/usr/local/etc/kafka/consumer.properties
+
+./bin/zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
+
+cd /usr/local/Cellar/kafka/0.10.2.0
+./bin/kafka-server-start /usr/local/etc/kafka/server.properties &
+
+
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+kafka-topics --list --zookeeper localhost:2181
+kafka-console-producer --broker-list 127.0.0.1:9092 --topic cpc_data
+kafka-console-consumer --bootstrap-server 127.0.0.1:2181 --topic cpc_data --from-beginning
+
+[{"num:01"},{"name":"toby","age":1},{"name":"tom","age":2}]
+[{"num:02"},{"name":"toby","age":1},{"name":"tom","age":2}]
+
+数据保存目录：/usr/local/var/lib/kafka-logs/
+
+查看kafka版本：find /usr/local/Cellar -name \*kafka_\* | head -1 | grep -o '\kafka[^\n]*'
+
+
+Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service
+
+
+mysql5.7安装：
+wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
+yum -y install mysql57-community-release-el7-10.noarch.rpm
+yum -y install mysql-community-server
+
+
+95机器mysql密码:cpc123456
+
+sudo yum -y install php71 php71-php-fpm php71-php-cli php71-php-gd php71-php-mcrypt php71-php-mysql php71-php-pear php71-php-xml php71-php-mbstring php71-php-pdo php71-php-json php71-php-pecl-apcu php71-php-pecl-apcu-devel
+
+
+服务器php-fpm启动：sudo systemctl stop php71-php-fpm
+
+后台启动elasticserach: /usr/local/bin/elasticsearch-6.6.0/bin/elasticsearch -d

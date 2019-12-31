@@ -1,0 +1,17 @@
+To have launchd start httpd now and restart at login:
+  brew services start httpd
+Or, if you don't want/need a background service you can just run:
+  apachectl start
+==> Summary
+🍺  /usr/local/Cellar/httpd/2.4.38: 1,648 files, 26.9MB
+==> Caveats
+==> httpd
+DocumentRoot is /usr/local/var/www.
+
+The default ports have been set in /usr/local/etc/httpd/httpd.conf to 8080 and in
+/usr/local/etc/httpd/extra/httpd-ssl.conf to 8443 so that httpd can run without sudo.
+
+To have launchd start httpd now and restart at login:
+  brew services start httpd
+Or, if you don't want/need a background service you can just run:
+  apachectl start

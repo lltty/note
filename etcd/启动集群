@@ -1,0 +1,43 @@
+1  如果有三台etcd集群:
+$ etcd -name infra0 -initial-advertise-peer-urls http://10.0.1.10:2380 \
+  -listen-peer-urls http://10.0.1.10:2380 \
+  -initial-cluster-token etcd-cluster-1 \
+  -initial-cluster infra0=http://10.0.1.10:2380,infra1=http://10.0.1.11:2380,infra2=http://10.0.1.12:2380 \
+  -initial-cluster-state new
+
+$ etcd -name infra1 -initial-advertise-peer-urls http://10.0.1.11:2380 \
+  -listen-peer-urls http://10.0.1.11:2380 \
+  -initial-cluster-token etcd-cluster-1 \
+  -initial-cluster infra0=http://10.0.1.10:2380,infra1=http://10.0.1.11:2380,infra2=http://10.0.1.12:2380 \
+  -initial-cluster-state new
+
+$ etcd -name infra2 -initial-advertise-peer-urls http://10.0.1.12:2380 \
+  -listen-peer-urls http://10.0.1.12:2380 \
+  -initial-cluster-token etcd-cluster-1 \
+  -initial-cluster infra0=http://10.0.1.10:2380,infra1=http://10.0.1.11:2380,infra2=http://10.0.1.12:2380 \
+  -initial-cluster-state new
+
+
+
+2  etcd自发现模式,进行集群管理
+设定集群数量为三:
+curl -X PUT http://myetcd.local/v2/keys/discovery/6c007a14875d53d9bf0ef5a6fc0257c817f0fb83/_config/size -d value=3
+
+然后你要把这个 url 地址http://myetcd.local/v2/keys/discovery/6c007a14875d53d9bf0ef5a6fc0257c817f0fb83作为-discovery参数来启动 etcd。
+节点会自动使用http://myetcd.local/v2/keys/discovery/6c007a14875d53d9bf0ef5a6fc0257c817f0fb83目录进行 etcd 的注册和发现服务。
+
+所以可以这样启动:
+
+$ etcd -name infra0 -initial-advertise-peer-urls http://10.0.1.10:2380 \
+  -listen-peer-urls http://10.0.1.10:2380 \
+  -discovery http://myetcd.local/v2/keys/discovery/6c007a14875d53d9bf0ef5a6fc0257c817f0fb83
+
+
+3  默认以上的启动方法只能以127.0.0.1访问，如果要以本机ip访问，启动时需要执行client的相关参数，比如:
+nohup etcd -name infra0 --initial-advertise-peer-urls http://192.168.104.111:2380 \
+--listen-peer-urls http://192.168.104.111:2380 \
+--advertise-client-urls http://192.168.104.111:2379,http://127.0.0.1:2379 \
+--listen-client-urls http://192.168.104.111:2379,http://127.0.0.1:2379 \
+--initial-cluster-token etcd-cluster-1 \
+--initial-cluster infra0=http://192.168.104.111:2380 \
+--initial-cluster-state new &

@@ -1,0 +1,20 @@
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 godep go build -o servers ../server/server.go
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOARCH=mips CC=mips-linux-gnu-gcc CXX=mips-linux-gnu-g++ godep go build ./main/rtb.go
+
+docker exec -it elastic_kare /bin/bash
+docker run -d -it -v /Users/user/wwwgo:/home/wwwgo centos:latest /bin/bash
+docker images
+docker ps
+
+go get github.com/tools/godep
+
+curl -v --header "Content-Type: application/json" --data @cpcrequest.json "http://localhost:9090/?pid=17106"
+flume-ng agent -c /opt/flume/conf -f /opt/flume/conf/example.conf -n a1 -Dflume.root.logger=INFO,console
+/opt/flume/mysinksfile
+
+/home/wwwroot/service/rtb/rtb -log_dir=/home/wwwroot/service/rtb/logs/ -v=5 -logtostderr=0
+
+netstat -tunlp | grep 33333 #查看端口占用并且显示占用进ID
+jps 查看java虚拟机运行应用(进程ID)
+
+go get github.com/tools/godep

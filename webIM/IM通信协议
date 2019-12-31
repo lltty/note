@@ -1,0 +1,29 @@
+IM通信协议
+    1 私有协议： 二进制：QQ,   文本：MSN
+    2 公开协议
+    XMPP(可扩展的通信和表示协议):Google Talk, vysper, 消息基于XML
+    SIP: 微软，IBM
+    Bayeux:comet，消息基于json
+
+WebIM的实现方式：
+    1 AJAX短轮询，不需要特殊服务器特殊支持
+    2 flash XMLSocket,java applet 套接字
+    3 comet
+    基于HTTP长连接，无须再浏览器安装插件的"服务器推"技术，需要服务器端的支持
+    a) 长轮询
+    b) iframe streaming: 比长轮询更有优势，客户端发起一个请求之后，服务端不停的向客户端push消息，这样浪费更少的资源。但浏览器会一直有一个加载中的状态
+    4 HTML5的event source 缺点是不能跨域
+    5 HTML5的websocket 全双工的通信方式
+
+nginx-push-stream-module:是nginx的扩展，对以上几种方式都支持和实现了
+查看nginx版本和加载模块等信息，可以用nginx -V，nginx增加模块是加-add-module参数
+
+更强大的工具:icomet 支持上百万连接,更稳定。
+
+音视频解决方案
+1 rtmp
+    音视频：NetStream
+    消息和文本： ShareObject
+    https://github.com/arut/nginx-rtmp-module
+
+2 WebRTC

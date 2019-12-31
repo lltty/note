@@ -1,0 +1,5 @@
+官方下载解压直接就可用，无需安装,注意该软件是要依赖java jdk的
+下载解压之后可以拷贝系统目录下便于运行：cp -R ~/Downloads/elasticsearch-6.6.0 /usr/local/bin/
+后台启动:/usr/local/bin/elasticsearch-6.6.0/bin/elasticsearch -d
+运行成功之后，可以通过界面访问：http://localhost:9200/?pretty，查看是否启动成功
+

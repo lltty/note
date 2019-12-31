@@ -1,0 +1,26 @@
+1 OpCode 如果想看到OpCode的字节码，可以用php 的Vld的扩展,还有apc,XCode缓存,apc,XCode不能同时使用
+
+2 HHVM介绍
+
+3 本机缓存和集中式缓存,会存在单点故障，所以要有集群
+
+4 PHP实现一致性hash 的库：flexihash
+
+5 分布式系统的三个原则: 数据一致性、可用性、分区容错性
+
+
+1 传统关系型数据库在一致性和可靠性方面很好，但是在可用性和容错性方面很不好,运维成本高,容易出错
+2 程序是面向对象的，但是DB是面向关系的，所以需要ORM来做关系映射。
+3 数据表变更比较苦难
+基于以上缺点，所以选择非关系型数据库，
+Nosql类型：
+  1 key  - value :Memcache redis
+  2 面向文档 MongoDB  适用于日志，结构化数据，变更频繁
+  3 其他：列存储，图，xml存储
+  Hbase.
+
+Memcache 是在客户端支持分布式的，服务器彼此没有通信，比如PHP memcache 的addServer()
+客户端如何实现分布式的: 1 普通hash求余  2 一致性hash
+hash算法一般用time33算法。
+
+redis的pipeline可以将多次操作合并成一次,这样可以大大减少时间

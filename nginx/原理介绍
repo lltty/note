@@ -1,0 +1,13 @@
+nginx的处理模块主要包含两部分:handler和filter
+filter模块:比如gzip压缩配置
+main :全局设置
+events: 事件配置
+upstream: 上下游服务器配置
+http: 处理请求
+server 主机设置
+location: url匹配特定位置后的设置
+
+
+nginx的处理过程：http请求->master进程分配给worker进程->nginx的core模块根据conf配置->转交给handler模块处理->filter模块处理->响应结果给客户端
+location由handler处理
+response有filter处理

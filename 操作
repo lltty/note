@@ -1,0 +1,4 @@
+在当前目录下递归查找内容包含某字符串的文件: grep -rn "zookeeper" *
+清空文件: : > filename
+根据进程号查看端口监听：netstat -anp | grep 20318  #20318是进程ID
+查看端口占用: lsof -i:8000

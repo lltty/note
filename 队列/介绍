@@ -1,0 +1,13 @@
+队列处理的特点：
+    1 异步处理数据
+    2 大并发时起缓冲作用
+    3 解耦合
+    4 可扩展
+
+开源队列： mx-queued: https://github.com/liexusong/mx-queued(个人实现的)
+          HTTPSQS 基于http GET/POST(个人实现的)
+
+          ActiveMQ: Apache出品
+          Qpidd: 是AMQP的高级实现，支持C/C++/Python/PHP多种语言
+
+AWS, 阿里云，LeanCloud 等云服务都提供了消息队列
