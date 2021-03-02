@@ -7,8 +7,6 @@ kafka是9092
 brew services start kafka   #kafka后台启动
 zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties & kafka-server-start /usr/local/etc/kafka/server.properties  #kafka前台启动
 
-
-
 配置文件所在位置：
 /usr/local/etc/kafka/server.properties
 /usr/local/etc/kafka/zookeeper.properties
@@ -23,6 +21,7 @@ cd /usr/local/Cellar/kafka/0.10.2.0
 kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 kafka-topics --list --zookeeper localhost:2181
 kafka-console-producer --broker-list 127.0.0.1:9092 --topic cpc_data
+kafka-topics --describe --zookeeper localhost:2181  --topic cpchehe
 kafka-console-consumer --bootstrap-server 127.0.0.1:2181 --topic cpc_data --from-beginning
 
 [{"num:01"},{"name":"toby","age":1},{"name":"tom","age":2}]
@@ -31,7 +30,6 @@ kafka-console-consumer --bootstrap-server 127.0.0.1:2181 --topic cpc_data --from
 数据保存目录：/usr/local/var/lib/kafka-logs/
 
 查看kafka版本：find /usr/local/Cellar -name \*kafka_\* | head -1 | grep -o '\kafka[^\n]*'
-
 
 Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service
 

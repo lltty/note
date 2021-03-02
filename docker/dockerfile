@@ -1,2 +1,0 @@
-FROM nginx
-RUN echo "这是一个本地构建nginx的镜像" > /usr/share/nginx/html/index.html

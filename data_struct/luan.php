@@ -420,6 +420,10 @@ class MYHash {
         }
     }
 
+    /*
+     * 这里其实是有问题的，因为insert的时候没有判断值是否存在，所以导致相同的键值可能回被存储为多个数据
+     * 所以这里才会有getAll,理论上hashTable是不允许存储重复键值的
+     */
     public function get($key, $getAll = FALSE) {
         $hash = $this->hash($key);
         $res = [];

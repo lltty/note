@@ -32,3 +32,8 @@ dep
     dep ensure 安装项目依赖的代码
     dep ensure -update 更新项目依赖
     dep ensure -add 添加项目依赖
+
+
+### 说明 dep是不支持在把$GOPATH/src作为项目根目录的，所以必须要另外再新建一个目录，否则会报错：
+    
+    dep does not currently support using GOPATH/src as the project root

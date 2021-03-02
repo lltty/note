@@ -4,7 +4,7 @@ more /var/log/mysqld.log
 找到  "A temporary password"行，有初始密码
 
 然后用mysql  -u -p初始密码  登陆
-修改密码，然后不管设置什么密码，豆包安全级别太低，
+修改密码，然后不管设置什么密码，都会报错安全级别太低，
 无赖之下降低安全级别：
 
 set global validate_password_policy=0;

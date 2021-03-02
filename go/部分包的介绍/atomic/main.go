@@ -9,5 +9,5 @@ func main() {
 	atomic.CompareAndSwapUint32(&reqNUm, 100, 200) //原子的比较，如果新值和旧值不一样，则设置为新值
 	atomic.AddUint32(&reqNUm, 1)                   //原子的加1
 	atomic.AddUint32(&reqNUm, ^uint32(1-1))        //原子的减1
-	atomic.SwapUint32(&reqNUm, 10)                 //远在的保存新值，且返回旧值
+	atomic.SwapUint32(&reqNUm, 10)                 //原子的保存新值，且返回旧值
 }

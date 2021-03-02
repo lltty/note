@@ -2,6 +2,7 @@
 
 function bubbleSort($arr)
 {
+
     $len = count($arr);
     for ($i = 1; $i < $len; $i++) {
         for ($k = 0; $k < $len - $i; $k++) {

@@ -1,15 +1,7 @@
-用于一次启动多个容器
+https://gitee.com/dockerf/second  
 
-启动多个容器
+##  1.1 安装
 
-    docker-compose up -d
-
-需要docker-compose.yml的启动文件
-
-    https://gitee.com/dockerf/second
-    
-    docker-compose stop
-    
-如果只想关闭一个容器
-
-    docker-compose 
+sudo curl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-composer version
